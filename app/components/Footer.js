@@ -8,7 +8,7 @@ const footerStyle = {
 
 const Footer = () => {
   return (
-    <div style={footerStyle} className="footer">&copy;All rights reserved
+    <div style={footerStyle} className="footer">&copy;2018 Flyaway Ltd
     </div>
   )
 }

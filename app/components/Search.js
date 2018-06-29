@@ -32,6 +32,11 @@ export default class Search extends React.Component {
       destination: e.target.value
     })
   }
+  handleDayChange = (e) => {
+    this.setState({
+      day: e.target.value
+    })
+  }
   handleMonthChange = (e) => {
     this.setState({
       month: e.target.value
@@ -45,13 +50,13 @@ export default class Search extends React.Component {
   
   handleFlightSearch = (e) => {
     e.preventDefault()
-    const url = `https://flight-api-psbswxlwrz.now.sh/flights&origin=${this.state.origin}&destination=${this.state.destination}&year=${this.state.year}&month=${this.state.month}`
+    const url = `https://flight-api-mbynoyjqmf.now.sh/flights&origin=${this.state.origin}&destination=${this.state.destination}&year=${this.state.year}&month=${this.state.month}&day=${this.state.day}`
     fetch(url)
     .then(res => res.json())
     .then(res => {
       console.log(res)
       this.setState({
-        flights: res[0]
+        flights: res
       })
     })
   }
@@ -62,7 +67,7 @@ export default class Search extends React.Component {
     return <div className="main-div">
       <form className="form-items">
         <div className="or-dest">
-          <select name="origin" className="input-field origin-input" onChange={this.handleOriginChange}>
+          Origin: <select name="origin" className="input-field origin-input" onChange={this.handleOriginChange}>
             <option value="">Please select</option>
             <option value="Melbourne">Melbourne</option>
             <option value="Sydney">Sydney</option>
@@ -75,7 +80,7 @@ export default class Search extends React.Component {
             <option value="Gold Coast">Gold Coast</option>
             <option value="Hobart">Hobart</option>
           </select>
-          <select name="destination" className="input-field destination-input" onChange={this.handleDestinationChange}>
+          Destination: <select name="destination" className="input-field destination-input" onChange={this.handleDestinationChange}>
             <option value="">Please select</option>
             <option value="Melbourne">Melbourne</option>
             <option value="Sydney">Sydney</option>
@@ -91,9 +96,9 @@ export default class Search extends React.Component {
           <br/>
         </div>
         <div className="yr-mon-d">
-          Year:<input type="number" className="input-field" name="quantity" min="2018" max="2018" name="year"onChange={this.handleYearChange}/>
-          Month:<input type="number" className="input-field month-input" name="quantity" min="7" max="12" name="month"onChange={this.handleMonthChange}/>
-          Day:<input type="number" className="input-field" name="quantity" min="1" max="31" name="day"/><br/>
+          Year:<input type="number" placeholder="  Please select" className="input-field" name="quantity" min="2018" max="2018" name="year"onChange={this.handleYearChange}/>
+          Month:<input type="number" placeholder="  Please select" className="input-field month-input" name="quantity" min="7" max="12" name="month"onChange={this.handleMonthChange}/>
+          Day:<input type="number" placeholder="  Please select" className="input-field" name="quantity" min="1" max="31" name="day" onChange={this.handleDayChange}/><br/>
         </div>
         <button type="submit" className="btn" onClick={this.handleFlightSearch}>Search flights</button>
       </form>
