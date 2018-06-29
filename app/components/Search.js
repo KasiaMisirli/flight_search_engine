@@ -1,7 +1,7 @@
 import React from 'react'
 import './Search.css'
 
-
+//setting up the original state
 export default class Search extends React.Component {
 
   constructor(props) {
@@ -20,7 +20,7 @@ export default class Search extends React.Component {
       }
     }
   }
-
+//adding changing state functions
   handleOriginChange = (e) => {
     this.setState({
       origin: e.target.value,
@@ -47,7 +47,7 @@ export default class Search extends React.Component {
       year: e.target.value
     })
   }
-  
+  //making the http request and getting the data back
   handleFlightSearch = (e) => {
     e.preventDefault()
     const url = `https://flight-api-mbynoyjqmf.now.sh/flights&origin=${this.state.origin}&destination=${this.state.destination}&year=${this.state.year}&month=${this.state.month}&day=${this.state.day}`
@@ -60,7 +60,7 @@ export default class Search extends React.Component {
       })
     })
   }
-
+//rendering the form and the api response
   render() {
     const {flights} = this.state
     console.log({flights})
