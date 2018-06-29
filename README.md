@@ -1,8 +1,8 @@
-# webpack react hot reload starter
+# Flyaway
 
-All you need, none you don't. 
+This is a flight search engine. 
 
-Sensible starter with hot reload to try react with webpack 3 that deploys straight to github pages.
+View [here](https://kasiamisirli.github.io/flight_search_engine/)
 
 ## Based on
 
@@ -10,36 +10,12 @@ Sensible starter with hot reload to try react with webpack 3 that deploys straig
 2. Language: [ES2015](https://babeljs.io/docs/learn-es2015/) ES2016/es7 class properties & object spread
 3. Library: [React](https://reactjs.org/), [Sass](http://sass-lang.com/), [Mocha](https://mochajs.org)
 
-## Usage
+## Data
 
-1. clone this repo
-```
-git clone THIS_GIT_REPO_URL
-```
+I have generated the data with [Data Faker](https://www.npmjs.com/package/data-faker)
+I have created a server to host this api, please see my [repository](https://github.com/KasiaMisirli/flights-API) for the code.
+This API was published on [Zeit](https://zeit.co/dashboard).
 
-2. install dependencies using npm or yarn
-```
-npm install
-```
-or
-```
-yarn install
-```
+## Author
 
-3. start dev server and start coding in `/app`
-```
-npm start
-```
-
-## build and deploy with github pages
-
-Github pages support hosting your site in a docs directory within your repo. Simply run the following command to build your site into docs directory and update the source setting on github. 
-
-```
-npm run build
-```
-
-## run tests in `/test`
-```
-npm test
-``` # flight_search_engine
+* **Kasia Misirli** 
