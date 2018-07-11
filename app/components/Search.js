@@ -56,9 +56,9 @@ export default class Search extends React.Component {
           <br/>
         </div>
         <div className="yr-mon-d">
-          Year:<input type="number" placeholder="  Please select" className="input-field" name="quantity" min="2018" max="2018" name="year"onChange={this.handleChange}/>
-          Month:<input type="number" placeholder="  Please select" className="input-field month-input" name="quantity" min="7" max="12" name="month"onChange={this.handleChange}/>
-          Day:<input type="number" placeholder="  Please select" className="input-field" name="quantity" min="1" max="31" name="day" onChange={this.handleChange}/><br/>
+          Year: <input type="number" placeholder="  Please select" className="input-field" name="quantity" min="2018" max="2018" name="year"onChange={this.handleChange}/>
+          Month: <input type="number" placeholder="  Please select" className="input-field month-input" name="quantity" min="7" max="12" name="month"onChange={this.handleChange}/>
+          Day: <input type="number" placeholder="  Please select" className="input-field" name="quantity" min="1" max="31" name="day" onChange={this.handleChange}/><br/>
         </div>
         <button type="submit" className="btn" onClick={this.handleFlightSearch}>Search flights</button>
       </form>
