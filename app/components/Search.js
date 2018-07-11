@@ -21,30 +21,9 @@ export default class Search extends React.Component {
     }
   }
 //adding changing state functions
-  handleOriginChange = (e) => {
+  handleChange = (e) => {
     this.setState({
-      origin: e.target.value,
-    })
-  }
-
-  handleDestinationChange = (e) => {
-    this.setState({
-      destination: e.target.value
-    })
-  }
-  handleDayChange = (e) => {
-    this.setState({
-      day: e.target.value
-    })
-  }
-  handleMonthChange = (e) => {
-    this.setState({
-      month: e.target.value
-    })
-  }
-  handleYearChange = (e) => {
-    this.setState({
-      year: e.target.value
+      [e.target.name] : e.target.value, //[e.target.name] es6,refer to computed property name
     })
   }
   //making the http request and getting the data back
@@ -60,45 +39,26 @@ export default class Search extends React.Component {
       })
     })
   }
+
 //rendering the form and the api response
   render() {
     const {flights} = this.state
-    console.log({flights})
+    var cities = ["Please select", "Melbourne","Sydney","Darwin","Canberra","Newcastle","Perth","Brisbane","Adelaide","Gold Coast","Hobart"]
     return <div className="main-div">
       <form className="form-items">
         <div className="or-dest">
-          Origin: <select name="origin" className="input-field origin-input" onChange={this.handleOriginChange}>
-            <option value="">Please select</option>
-            <option value="Melbourne">Melbourne</option>
-            <option value="Sydney">Sydney</option>
-            <option value="Darwin">Darwin</option>
-            <option value="Canberra">Canberra</option>
-            <option value="Newcastle">Newcastle</option>
-            <option value="Perth">Perth</option>
-            <option value="Brisbane">Brisbane</option>
-            <option value="Adelaide">Adelaide</option>
-            <option value="Gold Coast">Gold Coast</option>
-            <option value="Hobart">Hobart</option>
+          Origin: <select name="origin" className="input-field origin-input" onChange={this.handleChange}>
+          {cities.map(city=><option>{city}</option>)}
           </select>
-          Destination: <select name="destination" className="input-field destination-input" onChange={this.handleDestinationChange}>
-            <option value="">Please select</option>
-            <option value="Melbourne">Melbourne</option>
-            <option value="Sydney">Sydney</option>
-            <option value="Darwin">Darwin</option>
-            <option value="Canberra">Canberra</option>
-            <option value="Newcastle">Newcastle</option>
-            <option value="Perth">Perth</option>
-            <option value="Brisbane">Brisbane</option>
-            <option value="Adelaide">Adelaide</option>
-            <option value="Gold Coast">Gold Coast</option>
-            <option value="Hobart">Hobart</option>
+          Destination: <select name="destination" className="input-field destination-input" onChange={this.handleChange}>
+          {cities.map(city=><option>{city}</option>)}
           </select>
           <br/>
         </div>
         <div className="yr-mon-d">
-          Year:<input type="number" placeholder="  Please select" className="input-field" name="quantity" min="2018" max="2018" name="year"onChange={this.handleYearChange}/>
-          Month:<input type="number" placeholder="  Please select" className="input-field month-input" name="quantity" min="7" max="12" name="month"onChange={this.handleMonthChange}/>
-          Day:<input type="number" placeholder="  Please select" className="input-field" name="quantity" min="1" max="31" name="day" onChange={this.handleDayChange}/><br/>
+          Year:<input type="number" placeholder="  Please select" className="input-field" name="quantity" min="2018" max="2018" name="year"onChange={this.handleChange}/>
+          Month:<input type="number" placeholder="  Please select" className="input-field month-input" name="quantity" min="7" max="12" name="month"onChange={this.handleChange}/>
+          Day:<input type="number" placeholder="  Please select" className="input-field" name="quantity" min="1" max="31" name="day" onChange={this.handleChange}/><br/>
         </div>
         <button type="submit" className="btn" onClick={this.handleFlightSearch}>Search flights</button>
       </form>
